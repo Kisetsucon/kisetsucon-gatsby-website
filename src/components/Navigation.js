@@ -1,35 +1,50 @@
 import React from 'react'
 
+import AppBar from '@material-ui/core/AppBar'
 import Drawer from '@material-ui/core/Drawer'
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Hidden from '@material-ui/core/Hidden'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Logo from './Logo'
 import DrawerItem from './DrawerItem'
 import SocialIcon from './SocialIcon'
-
-const drawerWidth = 240
+import { Home, Store, People, Event, Help } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
+  appBar: {
+    backgroundColor: '#ec9d57',
+    display: 'block',
+    paddingLeft: theme.spacing(2)
+  },
   drawer: {
     [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
+      width: 175,
       flexShrink: 0
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 240
     }
   },
   drawerPaper: {
-    width: drawerWidth,
     display: 'flex',
+    width: 200,
+    height: 'calc(100vh - 143px)',
     flexDirection: 'column',
-    height: 'calc(100vh - 165px)'
+    backgroundColor: '#f1f1f1',
+    transition: 'width 0.25s',
+    [theme.breakpoints.up('sm')]: {
+      width: 175,
+      height: 'calc(100vh - 142px)'
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 240,
+      height: 'calc(100vh - 162px)'
+    }
   },
   menuButton: {
-    position: 'absolute',
-    top: '-3px',
-    left: '10px',
     [theme.breakpoints.up('sm')]: {
       display: 'none'
     }
@@ -41,18 +56,26 @@ const useStyles = makeStyles(theme => ({
   },
   social: {
     padding: '10px 8px 4px',
+    borderTop: '1px solid #c3c3c3',
     textAlign: 'center',
     backgroundColor: '#f1f1f1'
   },
   logo: {
+    backgroundColor: '#f1f1f1',
     padding: theme.spacing(2, 2, 1)
   },
   copyright: {
+    fontFamily: 'Roboto',
+    backgroundColor: '#f1f1f1',
     fontSize: '0.75rem',
     textAlign: 'center',
     color: '#9c9c9c'
   }
 }))
+
+const iconSize = {
+  fontSize: 42
+}
 
 const Navigation = () => {
   const classes = useStyles()
@@ -65,8 +88,11 @@ const Navigation = () => {
   const drawer = (
     <>
       <div className={classes.drawerPaper}>
-        <DrawerItem title='Home' icon='home' />
-        <DrawerItem title='Guests' icon='people' />
+        <DrawerItem title='About' to='/'><Home style={iconSize} /></DrawerItem>
+        <DrawerItem title='Registration' to='/registration/'><Store style={iconSize} /></DrawerItem>
+        <DrawerItem title='Guests' to='/guests/'><People style={iconSize} /></DrawerItem>
+        <DrawerItem title='Events' to='/events/'><Event style={iconSize} /></DrawerItem>
+        <DrawerItem title='Rules' to='/rules/'><Help style={iconSize} /></DrawerItem>
       </div>
       <div className={classes.social}>
         <SocialIcon fb href='https://facebook.com/Kisetsucon' />
@@ -86,15 +112,18 @@ const Navigation = () => {
   return (
     <nav className={classes.drawer} aria-label='main navigation'>
       <Hidden smUp implementation='css'>
-        <IconButton
-          color='inherit'
-          aria-label='open drawer'
-          edge='start'
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <MenuIcon /><span className={classes.menuButtonText}>Menu</span>
-        </IconButton>
+        <AppBar className={classes.appBar} position='static'>
+          <IconButton
+            color='inherit'
+            aria-label='open drawer'
+            edge='start'
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <MenuIcon /><span className={classes.menuButtonText}>Kisetsucon 2020</span>
+          </IconButton>
+        </AppBar>
+
         <SwipeableDrawer
           variant='temporary'
           open={mobileOpen}

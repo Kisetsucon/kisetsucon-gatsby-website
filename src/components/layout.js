@@ -5,18 +5,18 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Navigation from './Navigation'
-import './layout.css'
+import './Layout.css'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    flexDirection: 'column',
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row'
+    }
   },
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(5, 1.25, 1),
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.spacing(2)
-    }
+    flexGrow: 1
   }
 }))
 
