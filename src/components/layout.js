@@ -16,7 +16,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   content: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginTop: 50,
+    [theme.breakpoints.up('sm')]: {
+      marginTop: 'initial'
+    }
   }
 }))
 

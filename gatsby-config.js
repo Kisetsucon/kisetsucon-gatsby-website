@@ -20,6 +20,13 @@ module.exports = {
         path: `${__dirname}/src/markdown/rules`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `policies`,
+        path: `${__dirname}/src/markdown/policies`
+      }
+    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

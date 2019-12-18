@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Logo from './Logo'
 import DrawerItem from './DrawerItem'
 import SocialIcon from './SocialIcon'
-import { Home, Store, People, Event, Help } from '@material-ui/icons'
+import { ConfirmationNumber, Home, Store, People, Event, Help } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -31,13 +31,13 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     display: 'flex',
     width: 200,
-    height: 'calc(100vh - 143px)',
+    height: 'calc(100vh - 144px)',
     flexDirection: 'column',
     backgroundColor: '#f1f1f1',
     transition: 'width 0.25s',
     [theme.breakpoints.up('sm')]: {
       width: 175,
-      height: 'calc(100vh - 142px)'
+      height: 'calc(100vh - 135px)'
     },
     [theme.breakpoints.up('md')]: {
       width: 240,
@@ -53,6 +53,15 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Roboto',
     fontSize: '1rem',
     marginLeft: '6px'
+  },
+  date: {
+    padding: theme.spacing(1),
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    backgroundColor: '#ff596f',
+    textAlign: 'center',
+    color: '#fbfbfb'
   },
   social: {
     padding: '10px 8px 4px',
@@ -88,6 +97,8 @@ const Navigation = () => {
   const drawer = (
     <>
       <div className={classes.drawerPaper}>
+        <div className={classes.date}>September 5th, 2020</div>
+        <DrawerItem registration title='Buy Tickets Now' to='/registration/'><ConfirmationNumber style={{ fontSize: 32 }} /></DrawerItem>
         <DrawerItem title='About' to='/'><Home style={iconSize} /></DrawerItem>
         <DrawerItem title='Registration' to='/registration/'><Store style={iconSize} /></DrawerItem>
         <DrawerItem title='Guests' to='/guests/'><People style={iconSize} /></DrawerItem>
@@ -99,6 +110,7 @@ const Navigation = () => {
         <SocialIcon ig href='https://instagram.com/Kisetsucon' />
         <SocialIcon tw href='https://twitter.com/Kisetsucon' />
         <SocialIcon web href='https://kisetsucon.org' />
+        <SocialIcon email href='mailto:general@kisetsucon.org' />
       </div>
       <div className={classes.logo}>
         <Logo />
@@ -112,7 +124,7 @@ const Navigation = () => {
   return (
     <nav className={classes.drawer} aria-label='main navigation'>
       <Hidden smUp implementation='css'>
-        <AppBar className={classes.appBar} position='static'>
+        <AppBar className={classes.appBar} position='fixed'>
           <IconButton
             color='inherit'
             aria-label='open drawer'
@@ -120,7 +132,7 @@ const Navigation = () => {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon /><span className={classes.menuButtonText}>Kisetsucon 2020</span>
+            <MenuIcon /><span className={classes.menuButtonText}>Kisetsucon 2020 - September 5th, 2020</span>
           </IconButton>
         </AppBar>
 

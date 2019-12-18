@@ -2,15 +2,27 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Button from '@material-ui/core/Button'
+import { makeStyles } from '@material-ui/core/styles'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Accordion from '../components/Accordion'
-import { makeStyles } from '@material-ui/core/styles'
+import Hero from '../components/Hero'
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(2)
+  },
+  buttonGroup: {
+    marginTop: '1rem',
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'space-around'
+  },
+  acceptDiv: {
+    fontSize: '1.25rem',
+    textAlign: 'center',
+    marginTop: '1rem'
   }
 }))
 
@@ -30,9 +42,9 @@ const RulesPage = ({ data }) => {
   return (
     <Layout>
       <SEO title='Rules' />
-      <div className={classes.root}>
-        <h2>Convention Rules & Guidelines</h2>
+      <Hero title='Convention Rules & Guidelines' />
 
+      <div className={classes.root}>
         <div>
           {data.allFile.edges.map(({ node }, index) => {
             const title = node.childMarkdownRemark.frontmatter.title
@@ -46,7 +58,7 @@ const RulesPage = ({ data }) => {
           })}
         </div>
 
-        <div>
+        <div className={classes.buttonGroup}>
           <Link to='/privacy-policy/' style={linkStyle}>
             <Button variant='outlined' color='primary'>
               Privacy Policy
@@ -60,7 +72,9 @@ const RulesPage = ({ data }) => {
           </Link>
         </div>
 
-        <div>By purchasing a Kisetsucon badge, you accept to have read, understood, and abide by these rules.</div>
+        <div className={classes.acceptDiv}>
+          By attending Kisetsucon, you accept to have read, understood, and will abide by these rules.
+        </div>
       </div>
     </Layout>
   )

@@ -11,23 +11,41 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    background: 'linear-gradient(to left, #ec9d57 50%, #b55e17 50%)',
+    backgroundSize: '200% 100%',
+    backgroundPosition: 'right bottom',
     backgroundColor: '#ec9d57',
     color: '#fbfbfb',
     borderTop: '2px solid #d0d0d0',
     textDecoration: 'none',
     cursor: 'pointer',
-    transition: 'all 0.25s',
-    '&:first-of-type': {
-      borderTop: 'none'
-    },
-    '&:hover': {
-      backgroundColor: '#b55e17'
+    transition: 'all 0.25s, background-position 0.4s',
+    '&:hover, &:active': {
+      backgroundPosition: 'left bottom'
     }
   },
   drawerItemActive: {
-    backgroundColor: '#b55e17'
+    background: '#b55e17'
+  },
+  registrationItem: {
+    padding: theme.spacing(1),
+    maxHeight: 200,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    background: 'linear-gradient(to left, #ff596f 50%, #e3364d 50%)',
+    backgroundSize: '200% 100%',
+    backgroundPosition: 'right bottom',
+    color: '#fbfbfb',
+    textDecoration: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.25s, background-position 0.4s',
+    '&:hover, &:active': {
+      backgroundPosition: 'left bottom'
+    }
   },
   itemTitle: {
+    display: 'inline-flex',
     fontFamily: 'Roboto',
     position: 'relative',
     top: -12,
@@ -35,18 +53,29 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DrawerItem = ({ children, title, to }) => {
+const DrawerItem = ({ children, title, to, registration }) => {
   const classes = useStyles()
 
   if (to !== '') {
-    return (
-      <Link to={to} className={classes.drawerItem} activeClassName={classes.drawerItemActive}>
-        <div>
-          <span className={classes.itemContent}>{children}</span>
-          <span className={classes.itemTitle}>{title}</span>
-        </div>
-      </Link>
-    )
+    if (registration) {
+      return (
+        <Link to={to} className={classes.registrationItem}>
+          <div>
+            <span className={classes.itemContent}>{children}</span>
+            <span className={classes.itemTitle} style={{ top: -9 }}>{title}</span>
+          </div>
+        </Link>
+      )
+    } else {
+      return (
+        <Link to={to} className={classes.drawerItem} activeClassName={classes.drawerItemActive}>
+          <div>
+            <span className={classes.itemContent}>{children}</span>
+            <span className={classes.itemTitle}>{title}</span>
+          </div>
+        </Link>
+      )
+    }
   } else {
     return (
       <div className={classes.drawerItem} activeClassName={classes.drawerItemActive}>
@@ -62,12 +91,14 @@ const DrawerItem = ({ children, title, to }) => {
 DrawerItem.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  to: PropTypes.string
+  to: PropTypes.string,
+  registration: PropTypes.bool
 }
 
 DrawerItem.defaultProps = {
   title: '',
-  to: ''
+  to: '',
+  registration: false
 }
 
 export default DrawerItem
