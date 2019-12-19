@@ -24,7 +24,7 @@ const Partners = ({ children }) => {
 
   return (
     <div className={classes.root}>
-      
+      Partners here
     </div>
   )
 }

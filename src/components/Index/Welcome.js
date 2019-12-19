@@ -24,6 +24,7 @@ const Welcome = ({ children }) => {
 
   return (
     <div className={classes.root}>
+      Welcome to Kisetsucon!
     </div>
   )
 }

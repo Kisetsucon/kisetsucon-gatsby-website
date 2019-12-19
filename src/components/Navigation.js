@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('md')]: {
       width: 240,
-      height: 'calc(100vh - 162px)'
+      height: 'calc(100vh - 164px)'
     }
   },
   menuButton: {
