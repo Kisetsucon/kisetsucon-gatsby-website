@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import Collapse from '@material-ui/core/Collapse'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Layout from '../components/Layout'
@@ -36,6 +37,8 @@ const useStyles = makeStyles(theme => ({
     margin: '0 10px 10px 0',
     minWidth: 'calc(85vw / 2)',
     cursor: 'pointer',
+    textAlign: 'center',
+    borderRadius: 10,
     [theme.breakpoints.up('sm')]: {
       flexBasis: 175,
       minWidth: 100,
@@ -47,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   guestButtonActive: {
-    animation: '$shadowPulse 1.5s ease infinite'
+    animation: '$shadowPulse 1.3s ease infinite'
   },
   '@keyframes shadowPulse': {
     '0%': {
@@ -56,6 +59,18 @@ const useStyles = makeStyles(theme => ({
     '100%': {
       boxShadow: '0 0 0 8px rgba(0,0,0,0)'
     }
+  },
+  guestButtonImage: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+  },
+  guestButtonName: {
+    fontSize: '1.1rem',
+    borderStyle: 'none solid solid solid',
+    borderColor: 'rgba(0,0,0,0.3)',
+    borderWidth: 1,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10
   },
   content: {
     padding: theme.spacing(2),
@@ -82,6 +97,8 @@ const GuestsPage = ({ data }) => {
     html += '<div>' + content + '</div>'
 
     info.current.innerHTML = html
+
+    info.current.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -95,6 +112,11 @@ const GuestsPage = ({ data }) => {
             const key = 'guest-' + index
             const classList = classes.guestButton + ' ' + (active === key ? classes.guestButtonActive : '')
 
+            let image = node.childMarkdownRemark.frontmatter.image.childImageSharp.fluid
+            if (image === undefined) {
+              image = data.file.childImageSharp.fluid
+            }
+
             return (
               <div
                 key={key}
@@ -104,12 +126,15 @@ const GuestsPage = ({ data }) => {
                 onKeyPress={() => handleGuest(key, node)}
                 className={classList}
               >
-                <Img fluid={data.file.childImageSharp.fluid} draggable={false} />
+                <Img fluid={image} draggable={false} className={classes.guestButtonImage} />
+                <div className={classes.guestButtonName}>{node.childMarkdownRemark.frontmatter.name}</div>
               </div>
             )
           })}
         </div>
-        <div ref={info} type='text' className={classes.content} />
+        <Collapse in={active !== ''}>
+          <div ref={info} type='text' className={classes.content} />
+        </Collapse>
       </div>
     </Layout>
   )
@@ -119,7 +144,11 @@ export default GuestsPage
 
 export const query = graphql` 
   query GuestsQuery {
-    allFile(filter: {sourceInstanceName: {eq: "guests"}}, sort: {fields: childMarkdownRemark___frontmatter___name, order: ASC}) {
+    allFile(filter: {
+      sourceInstanceName: {eq: "guests"},
+      extension: {eq: "md"}},
+      sort: {fields: childMarkdownRemark___frontmatter___name, order: ASC
+      }) {
       edges {
         node {
           childMarkdownRemark {
@@ -129,6 +158,13 @@ export const query = graphql`
               facebook
               instagram
               twitter
+              image {
+                childImageSharp {
+                  fluid(quality: 100, maxWidth: 250) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
             }
             html
           }

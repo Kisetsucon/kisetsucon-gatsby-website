@@ -1,6 +1,7 @@
 ---
 name: 'Bunkie'
 type: 'Cosplayer'
+image:  './images/bunkie.png'
 facebook: 'bunkiecosplay'
 instagram: ''
 twitter: ''

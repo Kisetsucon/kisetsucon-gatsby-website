@@ -1,6 +1,7 @@
 ---
 name: 'HikikoMuri'
 type: 'Cosplayer'
+image:  './images/hikikomuri.jpg'
 facebook: 'HikikoMuri'
 instagram: 'hikikomuri'
 twitter: ''

@@ -1,6 +1,7 @@
 ---
 name: 'Faye Mata'
 type: 'Voice Actress'
+image:  './images/faye-mata.jpg'
 facebook: 'fayematata'
 instagram: ''
 twitter: 'FayeMata'

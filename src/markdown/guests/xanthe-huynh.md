@@ -1,6 +1,7 @@
 ---
 name: 'Xanthe Huynh'
 type: 'Voice Actress'
+image:  './images/xanthe-huynh.jpg'
 facebook: 'XanthesVoice'
 instagram: ''
 twitter: 'itsxanthor'
