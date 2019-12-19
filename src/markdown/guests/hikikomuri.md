@@ -1,6 +1,6 @@
 ---
 name: 'HikikoMuri'
-type: 'Cosplay'
+type: 'Cosplayer'
 facebook: 'HikikoMuri'
 instagram: 'hikikomuri'
 twitter: ''

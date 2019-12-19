@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
     color: '#eee',
     textTransform: 'capitalize',
     textShadow: '0 2px 2px #0c3b3b',
+    zIndex: 2,
     position: 'absolute',
     top: '50%',
     left: '50%',

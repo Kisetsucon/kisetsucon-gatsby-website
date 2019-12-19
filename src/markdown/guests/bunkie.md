@@ -1,6 +1,6 @@
 ---
 name: 'Bunkie'
-type: 'Cosplay'
+type: 'Cosplayer'
 facebook: 'bunkiecosplay'
 instagram: ''
 twitter: ''
