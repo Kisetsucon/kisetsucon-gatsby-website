@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    background: 'linear-gradient(to left, #ec9d57 50%, #b55e17 50%)',
+    background: 'linear-gradient(to left, #ec9d57 50%, #f17416 50%)',
     backgroundSize: '200% 100%',
     backgroundPosition: 'right bottom',
     backgroundColor: '#ec9d57',
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   drawerItemActive: {
-    background: '#b55e17'
+    background: '#f17416'
   },
   registrationItem: {
     padding: theme.spacing(1),

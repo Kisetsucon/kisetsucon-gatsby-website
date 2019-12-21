@@ -1,20 +1,17 @@
 import React from 'react'
 
+import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    [theme.breakpoints.up('sm')]: {
+    justifyContent: 'center',
+    padding: theme.spacing(2),
+    backgroundColor: '#fff',
+    [theme.breakpoints.up('md')]: {
       flexDirection: 'row'
-    }
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(1.5, 1.25, 1),
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.spacing(2)
     }
   }
 }))
@@ -23,9 +20,9 @@ const Partners = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
-      Partners here
-    </div>
+    <Box className={classes.root} boxShadow={3}>
+      <h2>Put images and links of our partners here.</h2>
+    </Box>
   )
 }
 

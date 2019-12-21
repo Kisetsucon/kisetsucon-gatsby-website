@@ -70,8 +70,8 @@ const Intro = ({ children }) => {
           <Logo />
           <br />
           <div>
-            <h3>September 5th, 2020</h3>
-            <h4>RIT Inn & Conference Center</h4>
+            <h1>September 5th, 2020</h1>
+            <h2>RIT Inn & Conference Center</h2>
           </div>
           <br />
           <Countdown time='05 September 2020 10:00:00' />
