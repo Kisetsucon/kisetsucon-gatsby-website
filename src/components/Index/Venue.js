@@ -31,10 +31,11 @@ const Venue = ({ children }) => {
     <Box className={classes.root} boxShadow={3}>
       <div className={classes.map}>
         <iframe
+          title='mapFrame'
           src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.654219125829!2d-77.66129638384723!3d43.04870629932446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d14c0116e03e77%3A0x422a59b5e2bb499a!2sRIT%20Inn%20%26%20Conference%20Center!5e0!3m2!1sen!2sus!4v1576903710039!5m2!1sen!2sus'
-          frameborder='0'
+          frameBorder='0'
           style={{ border: '0', height: 400, width: '100%' }}
-          allowfullscreen='' />
+          allowFullScreen='' />
       </div>
       <div className={classes.info}>
         <h4>Address</h4>
