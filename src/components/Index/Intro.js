@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
@@ -17,20 +18,35 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     display: 'flex',
     alignItems: 'center',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundAttachment: 'fixed',
+    backgroundRepeat: 'no-repeat',
     [theme.breakpoints.up('sm')]: {
       height: '100vh'
     }
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(0, 0, 0, 0.5)'
   },
   container: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+    zIndex: 2
   },
   info: {
     flex: '1 1 auto',
     padding: theme.spacing(2),
-    maxWidth: 600
+    maxWidth: 600,
+    color: '#eee',
+    textShadow: '0 2px 2px #0c3b3b'
   },
   mainButton: {
     background: 'linear-gradient(to right, #ff7945, #ff4545)',
@@ -63,8 +79,25 @@ const useStyles = makeStyles(theme => ({
 const Intro = ({ children }) => {
   const classes = useStyles()
 
+  const data = useStaticQuery(graphql`
+    query {
+      image: file(relativePath: { eq: "DSC_8189.jpg" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+    }
+  `)
+
   return (
-    <div className={classes.intro}>
+    <BackgroundImage
+      tag='div'
+      className={classes.intro}
+      fluid={data.image.childImageSharp.fluid}
+    >
+      <div className={classes.overlay} />
       <Container className={classes.container} fixed>
         <div className={classes.info}>
           <Logo />
@@ -87,7 +120,7 @@ const Intro = ({ children }) => {
           </div>
         </div>
       </Container>
-    </div>
+    </BackgroundImage>
   )
 }
 
