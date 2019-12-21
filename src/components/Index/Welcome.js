@@ -54,7 +54,7 @@ const Welcome = ({ children }) => {
     query {
       image: file(relativePath: { eq: "DSC_8130.jpg" }) {
         childImageSharp {
-          fluid(quality: 100) {
+          fluid(quality: 80, maxWidth: 2560) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
