@@ -88,9 +88,13 @@ const ImageWheel = ({ children }) => {
   useEffect(() => {
     const imageContainerSize = imageElements.length * imageWidth
     const duration = (imageContainerSize / imageWidth) * 4
+    let resizeTimeout = null
 
     initializeAnimation(imageContainerSize, duration)
-    window.addEventListener('resize', () => setAnimation(imageContainerSize, duration))
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => setAnimation(imageContainerSize, duration), 100)
+    })
   })
 
   return (

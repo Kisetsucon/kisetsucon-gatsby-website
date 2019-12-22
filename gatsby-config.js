@@ -43,10 +43,10 @@ module.exports = {
         name: `Kisetsucon Website`,
         short_name: `Kisetsucon`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#ec9d57`,
+        theme_color: `#ec9d57`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: `src/images/kisetsucon-logo.png` // This path is relative to the root of the site.
       }
     },
     {

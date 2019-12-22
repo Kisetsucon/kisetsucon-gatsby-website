@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     color: '#eee',
     textTransform: 'capitalize',
-    textShadow: '0 2px 2px #0c3b3b',
+    textShadow: '0 2px 2px #de3c17',
     zIndex: 2,
     position: 'absolute',
     top: '50%',
