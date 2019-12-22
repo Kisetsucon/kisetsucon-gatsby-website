@@ -79,9 +79,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const info = React.createRef()
+
 const GuestsPage = ({ data }) => {
   const classes = useStyles()
-  const info = React.createRef()
   const [active, setActive] = React.useState('')
 
   const handleGuest = (key, node) => {
@@ -98,7 +99,9 @@ const GuestsPage = ({ data }) => {
 
     info.current.innerHTML = html
 
-    info.current.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      info.current.scrollIntoView({ behavior: 'smooth' })
+    }, 200)
   }
 
   return (
