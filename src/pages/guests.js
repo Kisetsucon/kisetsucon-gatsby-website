@@ -110,34 +110,39 @@ const GuestsPage = ({ data }) => {
       <Hero title='Guests' />
 
       <div className={classes.root}>
-        <div className={classes.buttons}>
-          {data.allFile.edges.map(({ node }, index) => {
-            const key = 'guest-' + index
-            const classList = classes.guestButton + ' ' + (active === key ? classes.guestButtonActive : '')
+        {data
+          ? <>
+            <div className={classes.buttons}>
+              {data.allFile.edges.map(({ node }, index) => {
+                const key = 'guest-' + index
+                const classList = classes.guestButton + ' ' + (active === key ? classes.guestButtonActive : '')
 
-            let image = node.childMarkdownRemark.frontmatter.image.childImageSharp.fluid
-            if (image === undefined) {
-              image = data.file.childImageSharp.fluid
-            }
+                let image = node.childMarkdownRemark.frontmatter.image.childImageSharp.fluid
+                if (image === undefined) {
+                  image = data.file.childImageSharp.fluid
+                }
 
-            return (
-              <div
-                key={key}
-                role='button'
-                tabIndex='0'
-                onClick={() => handleGuest(key, node)}
-                onKeyPress={() => handleGuest(key, node)}
-                className={classList}
-              >
-                <Img fluid={image} draggable={false} className={classes.guestButtonImage} />
-                <div className={classes.guestButtonName}>{node.childMarkdownRemark.frontmatter.name}</div>
-              </div>
-            )
-          })}
-        </div>
-        <Collapse in={active !== ''}>
-          <div ref={info} type='text' className={classes.content} />
-        </Collapse>
+                return (
+                  <div
+                    key={key}
+                    role='button'
+                    tabIndex='0'
+                    onClick={() => handleGuest(key, node)}
+                    onKeyPress={() => handleGuest(key, node)}
+                    className={classList}
+                  >
+                    <Img fluid={image} draggable={false} className={classes.guestButtonImage} />
+                    <div className={classes.guestButtonName}>{node.childMarkdownRemark.frontmatter.name}</div>
+                  </div>
+                )
+              })}
+            </div>
+            <Collapse in={active !== ''}>
+              <div ref={info} type='text' className={classes.content} />
+            </Collapse>
+          </>
+          : <h2>Coming Soon!</h2>
+        }
       </div>
     </Layout>
   )

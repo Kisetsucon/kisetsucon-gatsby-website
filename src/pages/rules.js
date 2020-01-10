@@ -73,7 +73,7 @@ const RulesPage = ({ data }) => {
         </div>
 
         <div className={classes.acceptDiv}>
-          By attending Kisetsucon, you accept to have read, understood, and will abide by these rules.
+          By attending Kisetsucon, you agree to have read, understood, and will abide by these rules.
         </div>
       </div>
     </Layout>
