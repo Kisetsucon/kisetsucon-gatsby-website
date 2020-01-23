@@ -28,7 +28,7 @@ const Venue = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <Box className={classes.root} boxShadow={3}>
+    <Box id='venue' className={classes.root} boxShadow={3}>
       <div className={classes.map}>
         <iframe
           title='mapFrame'

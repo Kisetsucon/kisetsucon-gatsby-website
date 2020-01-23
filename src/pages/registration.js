@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
   registrationButton: {
     padding: theme.spacing(2),
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginLeft: 'auto'
   }
 }))
 
@@ -49,9 +50,8 @@ const RegistrationPage = () => {
           <ExpansionPanelDetails>
             <div>
               <p>
-                <strong>Early-Bird Registration:</strong> $10 (Limited Time & Quantity)<br />
-                <strong>Pre-Registration:</strong> $15<br />
-                <strong>Full Price Registration:</strong> $20
+                <strong>Pre-Registration:</strong> $20 (Pre-Registration ends August 1st, 2020)<br />
+                <strong>Full Price Registration:</strong> $25
               </p>
 
               <p>All minors under the age of 6 are admitted to Kisetsucon for free as long as they
@@ -78,7 +78,7 @@ const RegistrationPage = () => {
             aria-controls='artist-content'
             id='artist-header'
           >
-            Artist [Preparing Applications]
+            Artist
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <div>
@@ -99,7 +99,7 @@ const RegistrationPage = () => {
 
               <h3>Application Process</h3>
               <ul>
-                <li>Apply online using the form</li>
+                <li>Apply online using the form. Applications close May 1st, 2020.</li>
                 <li>
                   A portfolio is required for all interested individuals.
                   <ul>
@@ -110,7 +110,12 @@ const RegistrationPage = () => {
                 </li>
                 <li>Once applications close, Kisetsucon staff will select artists based on a balance of variety of items being sold and quality.</li>
                 <li>After applications have been closed, you will be notified via email or your acceptance status after we have gone through our screening process.</li>
-                <li>Should you be accepted, you will be required to pay prior to your arrival.</li>
+                <li>
+                  Should you be accepted, you will be required to pay prior to your arrival.
+                  <ul>
+                    <li><strong>Cost for Artist is $70 for Kisetsucon 2020</strong></li>
+                  </ul>
+                </li>
                 <li>The payment will guarantee you a table, up to 2 chairs, and up to 2 Artist Badges.</li>
               </ul>
 
@@ -120,6 +125,14 @@ const RegistrationPage = () => {
                 <li>Upon cancellation, Kisetsucon will refund the artist. Then, a wait-listed artist will take their place.</li>
                 <li>All cancellations eligible for refund must be requested before August 1st, 2020</li>
               </ul>
+
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://docs.google.com/document/d/e/2PACX-1vQmUxg3ONHrHfRECRsvDltEIVVu7QG1WJ7XLkrD7eEPBYuGagvuaPeEmtfX_JNRfXuI2vnI5_qDyHO7/pub'
+              >
+                Artist Terms & Agreement
+              </a>
             </div>
             <div className={classes.registrationButton}>
               <Button
@@ -127,7 +140,7 @@ const RegistrationPage = () => {
                 color='primary'
                 target='_blank'
                 rel='noopener noreferrer'
-                href='#'>
+                href='https://docs.google.com/forms/d/e/1FAIpQLSeKMqeD0Cw4HZPv1okurZMQMM8yn4zfHuv4fvZQHo9jX-QaZw/viewform?usp=sf_link'>
                   Apply Now
               </Button>
             </div>
@@ -140,7 +153,7 @@ const RegistrationPage = () => {
             aria-controls='vendor-content'
             id='vendor-header'
           >
-            Vendor [Preparing Applications]
+            Vendor
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <div>
@@ -160,11 +173,16 @@ const RegistrationPage = () => {
 
               <h3>Application Process</h3>
               <ul>
-                <li>Apply online using the form</li>
+                <li>Apply online using the form. Applications close May 1st, 2020.</li>
                 <li>A website or URL to storefront is required for vendors</li>
                 <li>Once applications close, Kisetsucon staff will select vendors based on a balance of variety of items being sold and quality.</li>
                 <li>After applications have been closed, you will be notified via email or your acceptance status after we have gone through our screening process.</li>
-                <li>Should you be accepted, you will be required to pay prior to your arrival.</li>
+                <li>
+                  Should you be accepted, you will be required to pay prior to your arrival.
+                  <ul>
+                    <li><strong>Cost for Vendor is $150 for Kisetsucon 2020</strong></li>
+                  </ul>
+                </li>
                 <li>The payment will guarantee you 2 tables, 2 chairs, and 2 Vendor Badges.</li>
               </ul>
 
@@ -174,6 +192,14 @@ const RegistrationPage = () => {
                 <li>Upon cancellation, Kisetsucon will refund the vendor.</li>
                 <li>All cancellations eligible for refund must be requested before August 1st, 2020</li>
               </ul>
+
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://docs.google.com/document/d/e/2PACX-1vT48GiwGd4I4GAVLWciBpZ46JhA3-DQoMfeItAjJH_S6s88pchi1pQyJq7qBjfPlB36XcmoOuIxKZCs/pub'
+              >
+                Vendor Terms & Agreement
+              </a>
             </div>
             <div className={classes.registrationButton}>
               <Button
@@ -181,18 +207,18 @@ const RegistrationPage = () => {
                 color='primary'
                 target='_blank'
                 rel='noopener noreferrer'
-                href='#'>
+                href='https://docs.google.com/forms/d/e/1FAIpQLScvDDbNRme0ioK8ymeFBBxKHYbH1J1kotE1-uPz-S8e4RIreQ/viewform?usp=sf_link'>
                   Apply Now
               </Button>
             </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>
 
-        <ExpansionPanel>
+        <ExpansionPanel disabled>
           <ExpansionPanelSummary
             expandIcon={<ExpandMore />}
-            aria-controls='vendor-content'
-            id='vendor-header'
+            aria-controls='panelist-content'
+            id='panelist-header'
           >
             Panelist [Preparing Applications]
           </ExpansionPanelSummary>
@@ -235,11 +261,11 @@ const RegistrationPage = () => {
           </ExpansionPanelDetails>
         </ExpansionPanel>
 
-        <ExpansionPanel>
+        <ExpansionPanel disabled>
           <ExpansionPanelSummary
             expandIcon={<ExpandMore />}
-            aria-controls='vendor-content'
-            id='vendor-header'
+            aria-controls='volunteer-content'
+            id='volunteer-header'
           >
             Volunteer [Preparing Applications]
           </ExpansionPanelSummary>

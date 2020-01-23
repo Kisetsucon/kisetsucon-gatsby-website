@@ -150,6 +150,7 @@ const GuestsPage = ({ data }) => {
 
 export default GuestsPage
 
+/*
 export const query = graphql` 
   query GuestsQuery {
     allFile(filter: {
@@ -188,3 +189,4 @@ export const query = graphql`
     }
   }
 `
+*/

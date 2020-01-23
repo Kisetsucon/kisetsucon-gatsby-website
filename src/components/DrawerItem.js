@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'right bottom',
     backgroundColor: '#ec9d57',
     color: '#fbfbfb',
-    borderTop: '2px solid #d0d0d0',
     textDecoration: 'none',
     cursor: 'pointer',
     transition: 'all 0.25s, background-position 0.4s',
@@ -44,12 +43,24 @@ const useStyles = makeStyles(theme => ({
       backgroundPosition: 'left bottom'
     }
   },
-  itemTitle: {
+  registrationTitle: {
+    fontSize: '0.875rem',
     display: 'inline-flex',
     fontFamily: 'Roboto',
     position: 'relative',
     top: -12,
     marginLeft: theme.spacing(1)
+  },
+  itemTitle: {
+    display: 'inline-flex',
+    fontFamily: 'Roboto',
+    fontSize: '1rem',
+    position: 'relative',
+    top: -12,
+    marginLeft: theme.spacing(1),
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1.45rem'
+    }
   }
 }))
 
@@ -62,7 +73,7 @@ const DrawerItem = ({ children, title, to, registration }) => {
         <Link to={to} className={classes.registrationItem}>
           <div>
             <span className={classes.itemContent}>{children}</span>
-            <span className={classes.itemTitle} style={{ top: -9 }}>{title}</span>
+            <span className={classes.registrationTitle} style={{ top: -9 }}>{title}</span>
           </div>
         </Link>
       )

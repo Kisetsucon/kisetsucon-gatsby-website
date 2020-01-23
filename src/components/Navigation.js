@@ -28,6 +28,12 @@ const useStyles = makeStyles(theme => ({
       width: 240
     }
   },
+  physicalDrawer: {
+    '& > div': {
+      border: 'none !important',
+      boxShadow: '18px 0 24px -24px rgba(0,0,0,0.75)'
+    }
+  },
   drawerPaper: {
     display: 'flex',
     width: 200,
@@ -142,6 +148,7 @@ const Navigation = () => {
           onClose={handleDrawerToggle}
           onOpen={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
+          className={classes.physicalDrawer}
         >
           {drawer}
         </SwipeableDrawer>
@@ -150,6 +157,7 @@ const Navigation = () => {
         <Drawer
           variant='permanent'
           open
+          className={classes.physicalDrawer}
         >
           {drawer}
         </Drawer>
