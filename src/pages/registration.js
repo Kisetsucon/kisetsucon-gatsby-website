@@ -38,8 +38,8 @@ const RegistrationPage = () => {
       <Hero title='Registration' />
 
       <div className={classes.root}>
-        <h2 className={classes.header}>Kisetsucon 2020 will be on Saturday, September 5th, 2020</h2>
-        <ExpansionPanel>
+        <h2 className={classes.header}>Kisetsucon 2021 will be on Saturday, October 2nd, 2021</h2>
+        <ExpansionPanel disabled>
           <ExpansionPanelSummary
             expandIcon={<ExpandMore />}
             aria-controls='attendee-content'
@@ -50,7 +50,7 @@ const RegistrationPage = () => {
           <ExpansionPanelDetails>
             <div>
               <p>
-                <strong>Pre-Registration:</strong> $20 (Pre-Registration ends August 1st, 2020)<br />
+                <strong>Pre-Registration:</strong> $20<br />
                 <strong>Full Price Registration:</strong> $25
               </p>
 
@@ -72,7 +72,7 @@ const RegistrationPage = () => {
           </ExpansionPanelDetails>
         </ExpansionPanel>
 
-        <ExpansionPanel>
+        <ExpansionPanel disabled>
           <ExpansionPanelSummary
             expandIcon={<ExpandMore />}
             aria-controls='artist-content'
@@ -147,7 +147,7 @@ const RegistrationPage = () => {
           </ExpansionPanelDetails>
         </ExpansionPanel>
 
-        <ExpansionPanel>
+        <ExpansionPanel disabled>
           <ExpansionPanelSummary
             expandIcon={<ExpandMore />}
             aria-controls='vendor-content'

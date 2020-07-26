@@ -103,7 +103,7 @@ const Navigation = () => {
   const drawer = (
     <>
       <div className={classes.drawerPaper}>
-        <div className={classes.date}>September 5th, 2020</div>
+        <div className={classes.date}>October 2nd, 2021</div>
         <DrawerItem registration title='Buy Tickets Now' to='/registration/'><ConfirmationNumber style={{ fontSize: 32 }} /></DrawerItem>
         <DrawerItem title='About' to='/'><Home style={iconSize} /></DrawerItem>
         <DrawerItem title='Registration' to='/registration/'><Store style={iconSize} /></DrawerItem>
@@ -138,7 +138,7 @@ const Navigation = () => {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon /><span className={classes.menuButtonText}>Kisetsucon 2020 - September 5th, 2020</span>
+            <MenuIcon /><span className={classes.menuButtonText}>Kisetsucon 2021 - October 2nd, 2021</span>
           </IconButton>
         </AppBar>
 
