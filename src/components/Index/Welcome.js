@@ -70,7 +70,7 @@ const Welcome = ({ children }) => {
     >
       <div className={classes.overlay} />
       <div className={classes.content}>
-        <h2>Welcome to Kisetsucon 2021!</h2>
+        <h2>Welcome to Kisetsucon 2022!</h2>
         <p style={{ marginTop: '1rem' }}>
           With a love for anime, cosplay, and gaming, a group of local event organizers and community members
           joined together to create a fun, friendly, multi-fandom event that can be enjoyed by anyone.

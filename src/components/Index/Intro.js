@@ -103,11 +103,13 @@ const Intro = ({ children }) => {
           <Logo />
           <br />
           <div>
-            <h1>Saturday, October 2nd, 2021</h1>
-            <h2>RIT Inn & Conference Center</h2>
+            <h1>2021 has been cancelled!</h1>
+            <h2>See you all in 2022</h2>
+            <br />
+            <h3>RIT Inn & Conference Center</h3>
           </div>
           <br />
-          <Countdown time='02 October 2021 10:00:00' />
+          <Countdown time='02 October 2022 10:00:00' />
           <br />
           <Link to='/registration' style={{ textDecoration: 'none' }}>
             <Button variant='contained' color='secondary' className={classes.mainButton}>

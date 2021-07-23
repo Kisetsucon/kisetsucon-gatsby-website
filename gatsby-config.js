@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Kisetsucon 2021`,
+    title: `Kisetsucon 2022`,
     description: `Annual WNY Asian Pop-Culture Convention`,
     author: `@Kisetsucon`
   },

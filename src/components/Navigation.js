@@ -100,11 +100,12 @@ const Navigation = () => {
     setMobileOpen(!mobileOpen)
   }
 
+  // <DrawerItem registration title='Buy Tickets Now' to='/registration/'><ConfirmationNumber style={{ fontSize: 32 }} /></DrawerItem>
+  
   const drawer = (
     <>
       <div className={classes.drawerPaper}>
-        <div className={classes.date}>October 2nd, 2021</div>
-        <DrawerItem registration title='Buy Tickets Now' to='/registration/'><ConfirmationNumber style={{ fontSize: 32 }} /></DrawerItem>
+        <div className={classes.date}>Fall 2022</div>
         <DrawerItem title='About' to='/'><Home style={iconSize} /></DrawerItem>
         <DrawerItem title='Registration' to='/registration/'><Store style={iconSize} /></DrawerItem>
         <DrawerItem title='Guests' to='/guests/'><People style={iconSize} /></DrawerItem>
@@ -138,7 +139,7 @@ const Navigation = () => {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon /><span className={classes.menuButtonText}>Kisetsucon 2021 - October 2nd, 2021</span>
+            <MenuIcon /><span className={classes.menuButtonText}>Kisetsucon 2022 - Fall 2022</span>
           </IconButton>
         </AppBar>
 

@@ -38,7 +38,7 @@ const RegistrationPage = () => {
       <Hero title='Registration' />
 
       <div className={classes.root}>
-        <h2 className={classes.header}>Kisetsucon 2021 will be on Saturday, October 2nd, 2021</h2>
+        <h2 className={classes.header}>Kisetsucon 2021 has been cancelled. Check back for 2022!</h2>
         <ExpansionPanel disabled>
           <ExpansionPanelSummary
             expandIcon={<ExpandMore />}
