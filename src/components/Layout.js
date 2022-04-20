@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 
-import Navigation from './Navigation'
 import './Layout.css'
 
 const useStyles = makeStyles(theme => ({
@@ -17,10 +16,9 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    marginTop: 50,
-    [theme.breakpoints.up('sm')]: {
-      marginTop: 'initial'
-    }
+    marginTop: 0,
+    height: '100vh',
+    backgroundColor: '#f17416'
   }
 }))
 
@@ -30,7 +28,6 @@ const Layout = ({ children }) => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Navigation />
       <main className={classes.content}>{children}</main>
     </div>
   )

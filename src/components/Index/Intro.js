@@ -1,128 +1,54 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
 
-import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
-import { ExpandMore } from '@material-ui/icons'
 
-import Countdown from '../Countdown'
 import Logo from '../Logo'
 
 const useStyles = makeStyles(theme => ({
-  intro: {
-    width: '100%',
-    height: 'calc(100vh - 51px)',
-    background: 'pink',
-    padding: theme.spacing(2),
-    display: 'flex',
-    alignItems: 'center',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    backgroundAttachment: 'fixed',
-    backgroundRepeat: 'no-repeat',
-    [theme.breakpoints.up('sm')]: {
-      height: '100vh'
-    }
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'rgba(0, 0, 0, 0.5)'
-  },
   container: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    zIndex: 2
+    zIndex: 2,
+    backgroundColor: '#ec9d57',
+    border: '4px solid brown',
+    borderRadius: '10px',
+    [theme.breakpoints.up('md')]: {
+      position: 'absolute',
+      left: '50%',
+      top: '50%',
+      transform: 'translate(-50%, -50%)',
+    }
   },
   info: {
     flex: '1 1 auto',
     padding: theme.spacing(2),
-    maxWidth: 600,
+    maxWidth: 1000,
     color: '#eee',
     textShadow: '0 2px 2px #0c3b3b'
   },
-  mainButton: {
-    background: 'linear-gradient(to right, #ff7945, #ff4545)',
-    borderRadius: '20px'
-  },
-  goDownContainer: {
-    height: 50,
-    marginTop: '1rem',
-    position: 'relative'
-  },
-  goDown: {
-    animation: '$bounceDown 1.5s infinite',
-    position: 'absolute',
-    fontSize: '3rem',
-    transform: 'translateX(-1.5rem)'
-  },
-  '@keyframes bounceDown': {
-    '0%': {
-      top: 0
-    },
-    '50%': {
-      top: '1rem'
-    },
-    '100%': {
-      top: 0
-    }
-  }
 }))
 
-const Intro = ({ children }) => {
+const Intro = () => {
   const classes = useStyles()
 
-  const data = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "DSC_8189.jpg" }) {
-        childImageSharp {
-          fluid(quality: 80, maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `)
-
   return (
-    <BackgroundImage
-      tag='div'
-      className={classes.intro}
-      fluid={data.image.childImageSharp.fluid}
-    >
-      <div className={classes.overlay} />
-      <Container className={classes.container} fixed>
-        <div className={classes.info}>
-          <Logo />
-          <br />
-          <div>
-            <h1>2021 has been cancelled!</h1>
-            <h2>See you all in 2022</h2>
-            <br />
-            <h3>RIT Inn & Conference Center</h3>
-          </div>
-          <br />
-          <Countdown time='02 October 2022 10:00:00' />
-          <br />
-          <Link to='/registration' style={{ textDecoration: 'none' }}>
-            <Button variant='contained' color='secondary' className={classes.mainButton}>
-              Buy Tickets
-            </Button>
-          </Link>
-          <br />
-          <div className={classes.goDownContainer}>
-            <ExpandMore className={classes.goDown} />
-          </div>
+    <Container className={classes.container} fixed>
+      <div className={classes.info}>
+        <Logo />
+        <br />
+        <div>
+          <h1>Kisetsucon Inc. is Ending Down All Operations</h1>
+          <p>Hi everyone! It was a good run while it lasted. We started back in the summer of 2018 as a small group of ex-convention organizers to help create a local convention for Western New York folks (namely Buffalo and Rochester) to fill the void of events in the area.</p>
+          <p>We had our first ever event in 2019 and it was a massive success and we immediately began planning for next year. But then COVID came through and shook the entire world. We were small enough that we could push back our event without losing lots of money, unlike other larger events. Although we could keep the convention afloat, we can't say the same for our staffers. A lot of our lives and living situations were changed due to the pandemic.</p>
+          <p>We tried to hold out as much as we could, but as it is now, there's only a couple of staffers left actually in the WNY region that are willing to organize the convention. (Even I, the president, don't live in NY anymore)</p>
+          <p>So Kisetsucon is unfortunately over and Kisetsucon, Inc. is shutting down all operations (email, social media, etc).</p>
+          <h3>Thank you to everyone that supported Kisetsucon!</h3>
         </div>
-      </Container>
-    </BackgroundImage>
+      </div>
+    </Container>
   )
 }
 

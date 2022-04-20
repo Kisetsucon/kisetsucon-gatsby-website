@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Kisetsucon 2022`,
-    description: `Annual WNY Asian Pop-Culture Convention`,
+    title: `Kisetsucon Inc. is Shut Down`,
+    description: `Kisetucon Inc. is ending all operations`,
     author: `@Kisetsucon`
   },
   plugins: [
@@ -11,27 +11,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `rules`,
-        path: `${__dirname}/src/markdown/rules`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `policies`,
-        path: `${__dirname}/src/markdown/policies`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `guests`,
-        path: `${__dirname}/src/markdown/guests`
       }
     },
     `gatsby-transformer-remark`,
