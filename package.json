@@ -20,7 +20,7 @@
     "gatsby-plugin-sass": "^2.8.0",
     "gatsby-plugin-sharp": "^2.14.4",
     "gatsby-source-filesystem": "^2.11.1",
-    "gatsby-transformer-remark": "^2.16.1",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.12.1",
     "gsap": "^3.10.3",
     "intersection-observer": "^0.7.0",
